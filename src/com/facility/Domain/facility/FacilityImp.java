@@ -13,12 +13,10 @@ public abstract class FacilityImp implements Facility   {
 	
 	
 	public FacilityImp(String name, String facilityId, FacilityDetails details) {
-		super();
 		this.name = name;
 		this.facilityId = facilityId;
 		this.details = details;
 	}
-	
 	
 	public String getName() {
 		return name;
@@ -38,7 +36,6 @@ public abstract class FacilityImp implements Facility   {
 	public void setDetails(FacilityDetails details) {
 		this.details = details;
 	}
-	
 	
 	@Override
 	public String toString() {
