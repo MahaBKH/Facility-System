@@ -4,7 +4,7 @@ import  com.facility.Domain.facility.FacilityDetails;
 
 
 public interface Facility {
-	public void FacilityImp(String name, String facilityId, FacilityDetails details);
+	
 	public String getName();
 	public void setName(String name);
 	public String getFacilityId();

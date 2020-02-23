@@ -4,23 +4,28 @@ import  com.facility.Domain.facility.FacilityImp;
 
 import com.facility.Domain.maintenance.MaintenanceInspection;
 
-public abstract class MaintenanceImp implements Maintenance {
+public class MaintenanceImp implements Maintenance {
 
 int facilityMaintenanceCost;
-String facilityMaintenanceDetails;
 private String facilityID;
 private FacilityImp facility;
 private MaintenanceInspection inspection;
+private MaintenanceInspection facilityMaintenanceDetails;
 
+public MaintenanceImp() {
+	// TODO Auto-generated constructor stub
+}
 
-public MaintenanceImp(int facilityMaintenanceCost, String facilityMaintenanceDetails, String facilityID,
+public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspection facilityMaintenanceDetails, String facilityID,
 		FacilityImp facility, MaintenanceInspection inspection) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
 	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
 	this.facilityID = facilityID;
 	this.facility = facility;
-	this.inspection = inspection;
+
 }
+
+
 
 public int getFacilityMaintenanceCost() {
 	return facilityMaintenanceCost;
@@ -28,11 +33,11 @@ public int getFacilityMaintenanceCost() {
 public void setFacilityMaintenanceCost(int facilityMaintenanceCost) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
 }
-public String getFacilityMaintenanceDetails() {
-	return facilityMaintenanceDetails;
+public MaintenanceInspection getFacilityMaintenanceDetails() {
+	return inspection;
 }
-public void setFacilityMaintenanceDetails(String facilityMaintenanceDetails) {
-	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
+public void setFacilityMaintenanceDetails(MaintenanceInspection inspection) {
+	this.inspection = inspection;
 }
 public String getFacilityID() {
 	return facilityID;
@@ -46,12 +51,7 @@ public FacilityImp getFacility() {
 public void setFacility(FacilityImp facility) {
 	this.facility = facility;
 }
-public MaintenanceInspection getInspection() {
-	return inspection;
-}
-public void setInspection(MaintenanceInspection inspection) {
-	this.inspection = inspection;
-}
+
 
 @Override
 public String toString() {

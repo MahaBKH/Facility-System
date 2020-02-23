@@ -10,9 +10,9 @@ import com.facility.Domain.maintenance.MaintenanceInspection;
 public class MaintenanceService {
 	private MaintenanceDAO maintDAO = new MaintenanceDAO();
 	
-	public Maintenance makeFacilityMaintRequest(Facility facility, String facilityMaintenanceDetails, String facilityID, int facilityMaintenanceCost, MaintenanceInspection inspection) {
+	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspection facilityMaintenanceDetails, String facilityID, int facilityMaintenanceCost) {
 		try {
-		return maintDAO.makeFacilityMaintRequest(facility,facilityMaintenanceDetails, facilityID, facilityMaintenanceCost, inspection);
+		return maintDAO.makeFacilityMaintRequest(facility,facilityMaintenanceDetails, facilityID, facilityMaintenanceCost);
 		 } catch (Exception e) {
 	            System.err.println("Could not make maintenance request.");
 	        }

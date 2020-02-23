@@ -7,12 +7,13 @@ import com.facility.Domain.maintenance.MaintenanceInspection;
 
 public class MaintenanceDAO {
 
-	public Maintenance makeFacilityMaintRequest(Facility facility, String facilityMaintenanceDetails, String facilityID,
-			int facilityMaintenanceCost, MaintenanceInspection inspection) {
+	
+	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspection facilityMaintenanceDetails,
+			String facilityID, int facilityMaintenanceCost) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	public void scheduleMaintenance(Maintenance maint) {
 		// TODO Auto-generated method stub
 		
@@ -33,6 +34,8 @@ public class MaintenanceDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 
 

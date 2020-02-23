@@ -7,11 +7,16 @@ public String country;
 public int zip;
 
 public FacilityAddress(String street, String state, String country, int zip) {
-	super();
+	
 	this.street = street;
 	this.state = state;
 	this.country = country;
 	this.zip = zip;
+}
+
+
+public FacilityAddress() {
+	
 }
 
 

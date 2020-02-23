@@ -7,17 +7,19 @@ public class FacilityDetails {
 	private int capacity;
 	private FacilityAddress address;
 	private String phone;
-	private Facility facility;
 	
 	
+	public FacilityDetails() {
+		
+	}
 	
 	public FacilityDetails(int capacity, FacilityAddress address, String phone, String name, String facilityId,
 			Facility facility) {
-		super();
+		
 		this.capacity = capacity;
 		this.address = address;
 		this.phone = phone;
-		this.facility = facility;
+		
 	}
 	
 	
@@ -39,18 +41,13 @@ public class FacilityDetails {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Facility getFacility() {
-		return facility;
-	}
-	public void setFacility(Facility facility) {
-		this.facility = facility;
-	}
+	
 
 
 	@Override
 	public String toString() {
 		return "FacilityDetails [capacity=" + capacity + ", address=" + address + ", phone=" + phone + 
-				  ", facility=" + facility + "]";
+				   "]";
 	}
 	
 	

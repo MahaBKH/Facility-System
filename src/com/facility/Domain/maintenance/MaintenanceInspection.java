@@ -7,13 +7,15 @@ public class MaintenanceInspection {
 private Date inspectionDate;
 private String inspectionType;
 private String inspectionReport;
-private int urgency;
+private String urgency;
 private String detail;
 private Date requestDate;
 
+public MaintenanceInspection() {
+	// TODO Auto-generated constructor stub
+}
 
-
-public MaintenanceInspection(Date inspectionDate, String inspectionType, String inspectionReport, int urgency,
+public MaintenanceInspection(Date inspectionDate, String inspectionType, String inspectionReport, String urgency,
 		String detail, Date requestDate) {
 	this.inspectionDate = inspectionDate;
 	this.inspectionType = inspectionType;
@@ -22,6 +24,8 @@ public MaintenanceInspection(Date inspectionDate, String inspectionType, String 
 	this.detail = detail;
 	this.requestDate = requestDate;
 }
+
+
 
 public Date getInspectionDate() {
 	return inspectionDate;
@@ -41,10 +45,10 @@ public String getInspectionReport() {
 public void setInspectionReport(String inspectionReport) {
 	this.inspectionReport = inspectionReport;
 }
-public int getUrgency() {
+public String getUrgency() {
 	return urgency;
 }
-public void setUrgency(int urgency) {
+public void setUrgency(String urgency) {
 	this.urgency = urgency;
 }
 public String getDetail() {
