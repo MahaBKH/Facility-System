@@ -1,7 +1,7 @@
 package com.facility.Domain.facility;
 
 import  com.facility.Domain.facility.FacilityDetails;
-import  com.facility.Domain.facility.FacilityAddress;
+
 
 public interface Facility {
 	public void FacilityImp(String name, String facilityId, FacilityDetails details);

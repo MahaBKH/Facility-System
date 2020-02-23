@@ -1,7 +1,7 @@
 package com.facility.Domain.maintenance;
 
 import java.util.Date;
-import  com.facility.Domain.facility.FacilityImp;
+
 
 public class MaintenanceInspection {
 private Date inspectionDate;
@@ -12,6 +12,16 @@ private String detail;
 private Date requestDate;
 
 
+
+public MaintenanceInspection(Date inspectionDate, String inspectionType, String inspectionReport, int urgency,
+		String detail, Date requestDate) {
+	this.inspectionDate = inspectionDate;
+	this.inspectionType = inspectionType;
+	this.inspectionReport = inspectionReport;
+	this.urgency = urgency;
+	this.detail = detail;
+	this.requestDate = requestDate;
+}
 
 public Date getInspectionDate() {
 	return inspectionDate;
@@ -50,9 +60,13 @@ public void setRequestDate(Date requestDate) {
 	this.requestDate = requestDate;
 }
 
+@Override
 public String toString() {
-	String result = "Maintenance Type:" + this.getInspectionType();
-	return result;
+	return "MaintenanceInspection [inspectionDate=" + inspectionDate + ", inspectionType=" + inspectionType
+			+ ", inspectionReport=" + inspectionReport + ", urgency=" + urgency + ", detail=" + detail
+			+ ", requestDate=" + requestDate + "]";
 }
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.facility.Domain.maintenance;
 
 import  com.facility.Domain.facility.FacilityImp;
+
 import com.facility.Domain.maintenance.MaintenanceInspection;
 
 public abstract class MaintenanceImp implements Maintenance {
@@ -12,8 +13,13 @@ private FacilityImp facility;
 private MaintenanceInspection inspection;
 
 
-public MaintenanceImp() {
-	
+public MaintenanceImp(int facilityMaintenanceCost, String facilityMaintenanceDetails, String facilityID,
+		FacilityImp facility, MaintenanceInspection inspection) {
+	this.facilityMaintenanceCost = facilityMaintenanceCost;
+	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
+	this.facilityID = facilityID;
+	this.facility = facility;
+	this.inspection = inspection;
 }
 
 public int getFacilityMaintenanceCost() {
@@ -45,6 +51,13 @@ public MaintenanceInspection getInspection() {
 }
 public void setInspection(MaintenanceInspection inspection) {
 	this.inspection = inspection;
+}
+
+@Override
+public String toString() {
+	return "MaintenanceImp [facilityMaintenanceCost=" + facilityMaintenanceCost + ", facilityMaintenanceDetails="
+			+ facilityMaintenanceDetails + ", facilityID=" + facilityID + ", facility=" + facility + ", inspection="
+			+ inspection + "]";
 }
 
 

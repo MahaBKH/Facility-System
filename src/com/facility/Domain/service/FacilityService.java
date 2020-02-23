@@ -6,7 +6,7 @@ import com.facility.Domain.facility.Facility;
 import com.facility.Domain.facility.FacilityDetails;
 
 
-public class FacilityService implements FacilityServiceInterface{
+public class FacilityService {
 	
 	private FacilityDAO facDAO = new FacilityDAO();
 	
