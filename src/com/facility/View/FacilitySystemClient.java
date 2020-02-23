@@ -11,7 +11,7 @@ import java.util.Date;
 import com.facility.Domain.facility.FacilityAddress;
 import  com.facility.Domain.facility.FacilityDetails;
 
-public class FacilityClient {
+public class FacilitySystemClient {
 	public static void main (String args[]) throws Exception {
 		
 		//new facility
@@ -62,6 +62,7 @@ public class FacilityClient {
 		management.getFacilityInformation(facility);
 		management.removeFacility(facility);
 		
+		
 		//maintenance service 
 		MaintenanceService m = new MaintenanceService();
 	
@@ -70,13 +71,8 @@ public class FacilityClient {
 		m.makeFacilityMaintRequest(facility, inspection, facility.getFacilityId(), maint.getFacilityMaintenanceCost());
 		m.listMaintRequests(facility);
 		m.listMaintenance(facility);
-		
-		
 		m.listFacilityProblems(facility);
-		
 		m.calcProblemRateForFacility(facility);
-		
-		
 		m.calcDownTimeForFacility(facility);
 		
 	}
