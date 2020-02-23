@@ -17,7 +17,6 @@ public abstract class FacilityImp implements Facility   {
 		this.facilityId = facilityId;
 		this.details = details;
 	}
-	
 	public String getName() {
 		return name;
 	}

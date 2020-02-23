@@ -32,4 +32,12 @@ public class FacilityDAO {
 		return null;
 	}
 
+
+	public FacilityDetails getFacilityDetails(Facility facility) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 }

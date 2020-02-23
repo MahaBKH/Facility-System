@@ -1,11 +1,12 @@
-package com.facility.Domain.facility;
+package com.facility.Domain.service;
 
 import java.util.ArrayList;
 import com.facility.DAL.Facility.FacilityDAO;
+import com.facility.Domain.facility.Facility;
+import com.facility.Domain.facility.FacilityDetails;
 
 
-public class FacilityService {
-	
+public class FacilityService implements FacilityServiceInterface{
 	
 	private FacilityDAO facDAO = new FacilityDAO();
 	
@@ -18,9 +19,14 @@ public class FacilityService {
 		return null;
 	}
 
-	public FacilityDetails getFacilityDetails(Facility facility) {
-		 FacilityDetails facilityDetail = facility.getDetails();
-		 return facilityDetail;
+	public FacilityDetails getFacilityInformation(Facility facility) {
+		 try {
+	            FacilityDetails facilityDetails = facDAO.getFacilityDetails(facility);
+	            return facilityDetails;
+	        } catch (Exception e) {
+	            System.err.println("Cannot retieve facility informaiton.");
+	        }
+	        return null;
 	}
 
 	public Integer requestAvailableCapacity(Facility facility) {
@@ -37,21 +43,27 @@ public class FacilityService {
         }
 	}
 
-	public void addNewFacility(Facility facility) {
+	public Facility addNewFacility(Facility facility) {
 		try {
 		facDAO.addNewFacility(facility);
 		System.out.println("Facility added.");
+		return facility;
 		}catch(Exception e) {
 		System.out.println("Cannot add facility.");
 		}
+		return null;
 	}
 	
-	public void removeFacility(Facility facility) {
+	public Facility removeFacility(Facility facility) {
 		try {
             facDAO.removeFacility(facility);
-        } catch (Exception e) {
+            System.out.println("Facility has been removed.");
+            return facility;
+
+		} catch (Exception e) {
             System.err.println("Cannot remove facility.");
         }
+		return null;
 
 	}
 
