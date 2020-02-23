@@ -12,3 +12,5 @@ service implementation for usage
 
 usage tests in view
 
+
+ALL DAO classes
