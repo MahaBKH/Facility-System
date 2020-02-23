@@ -1,4 +1,4 @@
-
+package com.facility.DAL.DBHelper;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+/*
+ *  DB HELPER FROM BOOKSTORE, TO BE EDITED LATER, HERE FOR REFERENCE FOR LATER ON
+ */
 public class DBHelper {
 
 	public static Connection getConnection() {
