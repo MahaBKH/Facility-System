@@ -28,6 +28,10 @@ public class FacilityClient {
 		details.setAddress(address);
 		details.setCapacity(100);
 		details.setPhone("6305552323");
+		facility.setDetails(details);
+		
+		System.out.println(details.toString());
+		System.out.println(facility.toString());
 		
 		
 		
@@ -60,14 +64,20 @@ public class FacilityClient {
 		
 		//maintenance service 
 		MaintenanceService m = new MaintenanceService();
-		m.calcDownTimeForFacility(facility);
+	
 		m.calcMaintenanceCostForFacility(facility);
-		m.calcProblemRateForFacility(facility);
-		m.listFacilityProblems(facility);
 		m.scheduleMaintenance(maint);
 		m.makeFacilityMaintRequest(facility, inspection, facility.getFacilityId(), maint.getFacilityMaintenanceCost());
-		m.scheduleMaintenance(maint);
+		m.listMaintRequests(facility);
+		m.listMaintenance(facility);
 		
+		
+		m.listFacilityProblems(facility);
+		
+		m.calcProblemRateForFacility(facility);
+		
+		
+		m.calcDownTimeForFacility(facility);
 		
 	}
 

@@ -34,9 +34,18 @@ public class MaintenanceDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
+	public String calcProblemRateForFacility(Facility facility) {
+		return null;
+		
+	}
 
+	public Integer calcDownTimeForFacility(Facility facility) {
+		return null;
+		
+	}
 
-
+	public ArrayList<Maintenance> listFacilityProblems(Facility facility){
+		return null;
+	}
 }

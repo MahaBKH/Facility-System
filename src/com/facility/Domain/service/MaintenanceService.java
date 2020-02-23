@@ -12,7 +12,10 @@ public class MaintenanceService {
 	
 	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspection facilityMaintenanceDetails, String facilityID, int facilityMaintenanceCost) {
 		try {
-		return maintDAO.makeFacilityMaintRequest(facility,facilityMaintenanceDetails, facilityID, facilityMaintenanceCost);
+			
+		Maintenance m =  maintDAO.makeFacilityMaintRequest(facility,facilityMaintenanceDetails, facilityID, facilityMaintenanceCost);
+		System.out.println("Maintenance Request has been made.");
+		return m;
 		 } catch (Exception e) {
 	            System.err.println("Could not make maintenance request.");
 	        }
@@ -32,34 +35,69 @@ public class MaintenanceService {
 	
 	public Integer calcMaintenanceCostForFacility(Facility facility) {
 	        try {
-	            return maintDAO.calcMaintenanceCostForFacility(facility);
-	            
+	            Integer n =  maintDAO.calcMaintenanceCostForFacility(facility);
+	            System.out.println("Price of maintenance for facility has been calculated.");
+	            return n;
 	        } catch (Exception e) {
 	            System.err.println("Could not calucalte price of maintenance.");
 	        }
 	        return 0;
 	    }
 	
-	public Double calcProblemRateForFacility(Facility facility) {
-		return null;
+	public String calcProblemRateForFacility(Facility facility) {
+		 ArrayList<Maintenance> facProblems = new ArrayList<Maintenance>();
+		
+	        try {
+	        		if(maintDAO.listMaintRequests(facility) == null || maintDAO.listMaintenance(facility) == null) {
+	        			return "LOW";
+	        		}
+	        		
+	        	 facProblems.addAll(maintDAO.listMaintRequests(facility));
+	             facProblems.addAll(maintDAO.listMaintenance(facility));
+	        	
+		         
+		         System.out.println("Caluclated Problem rate for facility.");
+		        
+		         if (facProblems  != null) {
+			        	if(facProblems.size()> 10) {
+			        		return "HIGH";
+			        	}else if(facProblems.size()> 5){
+			        		return "MODERATE";
+			        	}
+	        	 } else
+					return "LOW";
+						
+	        } catch (Exception e) {
+	            System.err.println("Could not calucate the problem rate for facility.");
+	            
+	        }
+	        return null;
 	}
 	
 	public Integer calcDownTimeForFacility(Facility facility) {
-	        int daysDown = 0;
+	        Integer daysDown = 0;
+	        Integer completedMaintItems;
 	        try {
-	            int completedMaintItems = maintDAO.listMaintenance(facility).size();
+	        	if (maintDAO.listMaintenance(facility) == null) {
+	        		 completedMaintItems  = 0;
+	        	}else {
+	        		completedMaintItems = maintDAO.listMaintenance(facility).size();  
+	        	}
+	            //5 weekdays
 	            daysDown = completedMaintItems * 5;
+	            System.out.println("Calculated Downtime for this facility.");
 	            return daysDown;
 	        } catch (Exception e) {
-	            System.err.println("Could not calculate down time for facility.");
-	            
+	            System.err.println("Could not calculate down time for facility.");   
 	        }
 	        return daysDown;
 	}
 	
 	public ArrayList<Maintenance> listMaintRequests(Facility facility){
 		 try {
-	            return maintDAO.listMaintRequests(facility);
+			 ArrayList<Maintenance> n  = maintDAO.listMaintRequests(facility);
+			 System.out.println("Retrieved list of maintenance requests.");
+			 return n;
 	        } catch (Exception e) {
 	            System.err.println("Could not display all maintenance requests for facility.");      
 	        }
@@ -68,7 +106,9 @@ public class MaintenanceService {
 	
 	public ArrayList<Maintenance> listMaintenance(Facility facility){
 		try {
-            return maintDAO.listMaintenance(facility);
+			ArrayList<Maintenance> m = maintDAO.listMaintenance(facility);
+            System.out.println("Retreieved history of maintenance.");
+            return m;
         } catch (Exception e) {
             System.err.println("Could not list all Maintenance history for facility.");
         }
@@ -77,14 +117,18 @@ public class MaintenanceService {
 	
 	public ArrayList<Maintenance> listFacilityProblems(Facility facility){
 		 ArrayList<Maintenance> facProblems = new ArrayList<Maintenance>();
+
 	        try {
+	        	
 	            facProblems.addAll(maintDAO.listMaintRequests(facility));
 	            facProblems.addAll(maintDAO.listMaintenance(facility));
+	            
+	            System.out.println("Retrieving list of facility problems.");
 	            return facProblems;
 	        } catch (Exception e) {
-	            System.err.println("Could not list out all facility problems");
+	        		System.out.println("There are no problems at this facility at this time.");
 	        }
-	        return null;
+	        return facProblems;
 	}
 	
 	
