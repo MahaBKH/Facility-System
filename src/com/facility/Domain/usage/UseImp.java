@@ -24,7 +24,8 @@ public class UseImp implements Usage {
 	}
 	
 	public String toString() {
-		return "UseImp [ facilityUseStart= " + FacilityUseStart +",facilityUseEnd=" + FacilityUseEnd+ ",facilityActualUsage=" + FacilityActualUsage+"]"; 
+		return "UseImp [FacilityUseStart=" + FacilityUseStart + ", FacilityUseEnd=" + FacilityUseEnd
+				+ ", FacilityActualUsage=" + FacilityActualUsage + "]";
 	}
 	@Override
 	public int FacilityUseStart() {
