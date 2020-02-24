@@ -11,28 +11,19 @@ public class FacilityDAO {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public Facility getFacilityDetails(String facilityID) {
+	public void addFacilityDetail(FacilityDetails details) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	public void removeFacility(Facility facility) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public void addFacilityDetail(FacilityDetails details) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public ArrayList<Facility> listFacilities() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 	public FacilityDetails getFacilityDetails(Facility facility) {
 		// TODO Auto-generated method stub
 		return null;

@@ -1,14 +1,15 @@
 package com.facility.Domain.maintenance;
 
+import com.facility.Domain.facility.Facility;
 import  com.facility.Domain.facility.FacilityImp;
 
 import com.facility.Domain.maintenance.MaintenanceInspection;
 
 public class MaintenanceImp implements Maintenance {
 
-int facilityMaintenanceCost;
+private int facilityMaintenanceCost;
 private String facilityID;
-private FacilityImp facility;
+private Facility facility;
 private MaintenanceInspection inspection;
 private MaintenanceInspection facilityMaintenanceDetails;
 
@@ -27,7 +28,7 @@ public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspection facilit
 
 
 
-public int getFacilityMaintenanceCost() {
+public Integer getFacilityMaintenanceCost() {
 	return facilityMaintenanceCost;
 }
 public void setFacilityMaintenanceCost(int facilityMaintenanceCost) {
@@ -45,7 +46,7 @@ public String getFacilityID() {
 public void setFacilityID(String facilityID) {
 	this.facilityID = facilityID;
 }
-public FacilityImp getFacility() {
+public Facility getFacility() {
 	return facility;
 }
 public void setFacility(FacilityImp facility) {

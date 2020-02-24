@@ -39,29 +39,12 @@ public String getInspectionType() {
 public void setInspectionType(String inspectionType) {
 	this.inspectionType = inspectionType;
 }
-public String getInspectionReport() {
-	return inspectionReport;
-}
-public void setInspectionReport(String inspectionReport) {
-	this.inspectionReport = inspectionReport;
-}
+
 public String getUrgency() {
 	return urgency;
 }
 public void setUrgency(String urgency) {
 	this.urgency = urgency;
-}
-public String getDetail() {
-	return detail;
-}
-public void setDetail(String detail) {
-	this.detail = detail;
-}
-public Date getRequestDate() {
-	return requestDate;
-}
-public void setRequestDate(Date requestDate) {
-	this.requestDate = requestDate;
 }
 
 @Override
@@ -70,6 +53,7 @@ public String toString() {
 			+ ", inspectionReport=" + inspectionReport + ", urgency=" + urgency + ", detail=" + detail
 			+ ", requestDate=" + requestDate + "]";
 }
+
 
 
 
