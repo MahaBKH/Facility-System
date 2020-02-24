@@ -5,6 +5,9 @@ import com.facility.Domain.maintenance.MaintenanceImp;
 import com.facility.Domain.maintenance.MaintenanceInspection;
 import com.facility.Domain.service.FacilityService;
 import com.facility.Domain.service.MaintenanceService;
+import com.facility.Domain.service.UsageService;
+import com.facility.Domain.usage.Usage;
+import com.facility.Domain.usage.UseImp;
 
 import java.util.Date;
 
@@ -74,6 +77,11 @@ public class FacilitySystemClient {
 		m.listFacilityProblems(facility);
 		m.calcProblemRateForFacility(facility);
 		m.calcDownTimeForFacility(facility);
+		
+			//Usage Service
+		UsageService use = new UsageService();
+		use.listActualUsage();
+		use.listInspection();
 		
 	}
 
