@@ -53,7 +53,15 @@ public String toString() {
 			+ ", inspectionReport=" + inspectionReport + ", urgency=" + urgency + ", detail=" + detail
 			+ ", requestDate=" + requestDate + "]";
 }
+public void setRequestDate(Date now) {
+	// TODO Auto-generated method stub
+	
+}
 
+public void setInspectionReport(String string) {
+	// TODO Auto-generated method stub
+	
+}
 
 
 
