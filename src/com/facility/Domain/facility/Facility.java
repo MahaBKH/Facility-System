@@ -1,6 +1,6 @@
 package com.facility.Domain.facility;
 
-import  com.facility.Domain.facility.FacilityDetails;
+import  com.facility.Domain.facility.FacilityDetailsImp;
 
 
 public interface Facility {
@@ -9,9 +9,9 @@ public interface Facility {
 	public void setName(String name);
 	public String getFacilityId();
 	public void setFacilityId(String facilityId);
-	public FacilityDetails getDetails();
+	public FacilityDetailsImp getDetails();
 
-	public void setDetails(FacilityDetails details);
+	public void setDetails(FacilityDetailsImp details);
 
 	public String toString();
 

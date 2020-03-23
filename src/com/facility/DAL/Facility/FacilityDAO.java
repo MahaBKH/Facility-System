@@ -3,7 +3,7 @@ package com.facility.DAL.Facility;
 import java.util.ArrayList;
 
 import com.facility.Domain.facility.Facility;
-import com.facility.Domain.facility.FacilityDetails;
+import com.facility.Domain.facility.FacilityDetailsImp;
 
 public class FacilityDAO {
 
@@ -11,7 +11,7 @@ public class FacilityDAO {
 		// TODO Auto-generated method stub
 		
 	}
-	public void addFacilityDetail(FacilityDetails details) {
+	public void addFacilityDetail(FacilityDetailsImp details) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -24,7 +24,7 @@ public class FacilityDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public FacilityDetails getFacilityDetails(Facility facility) {
+	public FacilityDetailsImp getFacilityDetails(Facility facility) {
 		// TODO Auto-generated method stub
 		return null;
 	}

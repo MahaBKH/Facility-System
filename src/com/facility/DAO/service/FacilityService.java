@@ -1,9 +1,9 @@
-package com.facility.Domain.service;
+package com.facility.DAO.service;
 
 import java.util.ArrayList;
 import com.facility.DAL.Facility.FacilityDAO;
 import com.facility.Domain.facility.Facility;
-import com.facility.Domain.facility.FacilityDetails;
+import com.facility.Domain.facility.FacilityDetailsImp;
 
 
 public class FacilityService {
@@ -19,9 +19,9 @@ public class FacilityService {
 		return null;
 	}
 
-	public FacilityDetails getFacilityInformation(Facility facility) {
+	public FacilityDetailsImp getFacilityInformation(Facility facility) {
 		 try {
-	            FacilityDetails facilityDetails = facDAO.getFacilityDetails(facility);
+	            FacilityDetailsImp facilityDetails = facDAO.getFacilityDetails(facility);
 	            return facilityDetails;
 	        } catch (Exception e) {
 	            System.err.println("Cannot retieve facility informaiton.");
@@ -34,7 +34,7 @@ public class FacilityService {
 		return facilityCapacity;	
 	}
 
-	public void addFacilityDetail(FacilityDetails details) {
+	public void addFacilityDetail(FacilityDetailsImp details) {
 		try {
             facDAO.addFacilityDetail(details);
             System.out.println("Facility details added.");

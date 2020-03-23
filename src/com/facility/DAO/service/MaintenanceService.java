@@ -1,16 +1,16 @@
-package com.facility.Domain.service;
+package com.facility.DAO.service;
 
 import java.util.ArrayList;
 
 import com.facility.DAL.Maintenance.MaintenanceDAO;
 import com.facility.Domain.facility.Facility;
 import com.facility.Domain.maintenance.Maintenance;
-import com.facility.Domain.maintenance.MaintenanceInspection;
+import com.facility.Domain.maintenance.MaintenanceInspectionImp;
 
 public class MaintenanceService {
 	private MaintenanceDAO maintDAO = new MaintenanceDAO();
 	
-	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspection facilityMaintenanceDetails, String facilityID, int facilityMaintenanceCost) {
+	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID, int facilityMaintenanceCost) {
 		try {
 			
 		Maintenance m =  maintDAO.makeFacilityMaintRequest(facility,facilityMaintenanceDetails, facilityID, facilityMaintenanceCost);

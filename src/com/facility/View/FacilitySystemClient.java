@@ -2,17 +2,17 @@ package com.facility.View;
 
 import com.facility.Domain.facility.FacilityImp;
 import com.facility.Domain.maintenance.MaintenanceImp;
-import com.facility.Domain.maintenance.MaintenanceInspection;
-import com.facility.Domain.service.FacilityService;
-import com.facility.Domain.service.MaintenanceService;
-import com.facility.Domain.service.UsageService;
+import com.facility.Domain.maintenance.MaintenanceInspectionImp;
 import com.facility.Domain.usage.Usage;
 import com.facility.Domain.usage.UseImp;
 
 import java.util.Date;
 
-import com.facility.Domain.facility.FacilityAddress;
-import  com.facility.Domain.facility.FacilityDetails;
+import com.facility.DAO.service.FacilityService;
+import com.facility.DAO.service.MaintenanceService;
+import com.facility.DAO.service.UsageService;
+import com.facility.Domain.facility.FacilityAddressImp;
+import  com.facility.Domain.facility.FacilityDetailsImp;
 
 public class FacilitySystemClient {
 	public static void main (String args[]) throws Exception {
@@ -22,8 +22,8 @@ public class FacilitySystemClient {
 		facility.setFacilityId("1111");
 		facility.setName("Peet's Coffee");
 		
-		FacilityDetails details = new FacilityDetails();
-		FacilityAddress address = new FacilityAddress();
+		FacilityDetailsImp details = new FacilityDetailsImp();
+		FacilityAddressImp address = new FacilityAddressImp();
 		address.setCountry("USA");
 		address.setState("IL");
 		address.setStreet("1110 Sherdian");
@@ -40,7 +40,7 @@ public class FacilitySystemClient {
 		
 		//new maintenance
 		MaintenanceImp maint = new MaintenanceImp();
-		MaintenanceInspection inspection = new MaintenanceInspection();
+		MaintenanceInspectionImp inspection = new MaintenanceInspectionImp();
 		maint.setFacility(facility);
 		maint.setFacilityID(facility.getFacilityId());
 		maint.setFacilityMaintenanceCost(150);

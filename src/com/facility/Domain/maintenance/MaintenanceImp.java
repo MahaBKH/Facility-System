@@ -3,22 +3,22 @@ package com.facility.Domain.maintenance;
 import com.facility.Domain.facility.Facility;
 import  com.facility.Domain.facility.FacilityImp;
 
-import com.facility.Domain.maintenance.MaintenanceInspection;
+import com.facility.Domain.maintenance.MaintenanceInspectionImp;
 
 public class MaintenanceImp implements Maintenance {
 
 private int facilityMaintenanceCost;
 private String facilityID;
 private Facility facility;
-private MaintenanceInspection inspection;
-private MaintenanceInspection facilityMaintenanceDetails;
+private MaintenanceInspectionImp inspection;
+private MaintenanceInspectionImp facilityMaintenanceDetails;
 
 public MaintenanceImp() {
 	// TODO Auto-generated constructor stub
 }
 
-public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspection facilityMaintenanceDetails, String facilityID,
-		FacilityImp facility, MaintenanceInspection inspection) {
+public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
+		FacilityImp facility, MaintenanceInspectionImp inspection) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
 	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
 	this.facilityID = facilityID;
@@ -34,10 +34,10 @@ public Integer getFacilityMaintenanceCost() {
 public void setFacilityMaintenanceCost(int facilityMaintenanceCost) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
 }
-public MaintenanceInspection getFacilityMaintenanceDetails() {
+public MaintenanceInspectionImp getFacilityMaintenanceDetails() {
 	return inspection;
 }
-public void setFacilityMaintenanceDetails(MaintenanceInspection inspection) {
+public void setFacilityMaintenanceDetails(MaintenanceInspectionImp inspection) {
 	this.inspection = inspection;
 }
 public String getFacilityID() {

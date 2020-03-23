@@ -3,12 +3,12 @@ package com.facility.DAL.Maintenance;
 import java.util.ArrayList;
 import com.facility.Domain.facility.Facility;
 import com.facility.Domain.maintenance.Maintenance;
-import com.facility.Domain.maintenance.MaintenanceInspection;
+import com.facility.Domain.maintenance.MaintenanceInspectionImp;
 
 public class MaintenanceDAO {
 
 	
-	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspection facilityMaintenanceDetails,
+	public Maintenance makeFacilityMaintRequest(Facility facility, MaintenanceInspectionImp facilityMaintenanceDetails,
 			String facilityID, int facilityMaintenanceCost) {
 		// TODO Auto-generated method stub
 		return null;
