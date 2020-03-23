@@ -4,18 +4,18 @@ This project is to be used as a facility management system. A facility managemen
 
 
 
-#Installation Instructions
+## Installation Instructions
 ```
 git clone <Repo URL> 
 ```
 
-#Running Instructions
+## Running Instructions
 
 ```
 ???
 ```
 
-#UML Diagram
+## UML Diagram
 ![UML](https://raw.githubusercontent.com/MahaBKT/Facility-System/master/Documents/UML.png)
 
 
