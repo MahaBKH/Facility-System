@@ -1,4 +1,4 @@
-package com.facility.DAO.service;
+package com.facility.Domain.service;
 
 import java.util.ArrayList;
 import com.facility.DAL.Facility.FacilityDAO;

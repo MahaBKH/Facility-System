@@ -1,4 +1,4 @@
-package com.facility.DAO.service;
+package com.facility.Domain.service;
 
 import java.util.ArrayList;
 
@@ -59,15 +59,14 @@ public class MaintenanceService {
 		         System.out.println("Caluclated Problem rate for facility.");
 		        
 		         if (facProblems  != null) {
-			        	if(facProblems.size()> 10) {
+			        	if(facProblems.size()> 9) {
 			        		return "HIGH";
-			        	}else if(facProblems.size()> 5){
-			        		return "MODERATE";
+			        	}else if(facProblems.size()> 3){
+			        		return "LOW";
 			        	}
-	        	 } else
-					return "LOW";
-						
-	        } catch (Exception e) {
+	
+	        } 
+	        }catch (Exception e) {
 	            System.err.println("Could not calucate the problem rate for facility.");
 	            
 	        }

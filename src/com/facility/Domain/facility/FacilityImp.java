@@ -12,6 +12,8 @@ public class FacilityImp implements Facility   {
 	private FacilityDetailsImp details;
 	
 	
+	public FacilityImp(String name, String facilityID, FacilityDetailsImp details2) {}
+	
 	public String getName() {
 		return name;
 	}

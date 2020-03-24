@@ -52,10 +52,7 @@ public class DBHelper {
  
 		if (connection != null) {
 			System.out.println("DBHelper: You have a database connection!");
-		} else {
-			System.out.println("DBHelper: Failed to make connection!");
-		}
-		
+		} 
 		return connection;
 	}
 }
