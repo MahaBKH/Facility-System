@@ -12,7 +12,7 @@ git clone <Repo URL>
 ## Running Instructions
 
 ```
-???
+Run project in Eclipse IDE.
 ```
 
 ## UML Diagram
