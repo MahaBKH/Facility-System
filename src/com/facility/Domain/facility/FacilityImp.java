@@ -5,7 +5,6 @@ package com.facility.Domain.facility;
 import java.util.ArrayList;
 
 import  com.facility.Domain.facility.FacilityDetailsImp;
-import com.facility.Domain.service.FacilityService;
 
 
 
@@ -14,12 +13,22 @@ public class FacilityImp implements Facility {
 	private String name;
 	private String facilityId;
 	private FacilityDetailsImp details;
+	private static ArrayList<FacilityImp> facilityList = new ArrayList<FacilityImp>();
 	
 
 	
 
-	public FacilityImp(String name, String facilityID, FacilityDetailsImp details2) {
+	public FacilityImp(String name, String facilityID, FacilityDetailsImp details) {
+		this.name = name;
+		this.facilityId = facilityID;
+		this.details = details;
 		
+		facilityList.add(this);
+	}
+	
+	//GETS ALL ALL OF THE FACILITIES 
+	public ArrayList<FacilityImp> getAllFacilities() {
+		return facilityList;
 	}
 	
 	
@@ -60,7 +69,7 @@ public class FacilityImp implements Facility {
 	}
 
 
-	private ArrayList<FacilityImp> facilityList = new ArrayList<FacilityImp>();
+	
 	
 
 	// LISTS ALL FACILITIES ADDED 
@@ -132,6 +141,9 @@ public class FacilityImp implements Facility {
             System.err.println("Cannot remove facility.");
         }
 	}
+	
+
+	
 
 	
 

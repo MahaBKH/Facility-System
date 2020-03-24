@@ -13,8 +13,7 @@ public class FacilityDetailsImp {
 		
 	}
 	
-	public FacilityDetailsImp(int capacity, FacilityAddressImp address, String phone, String name, String facilityId,
-			Facility facility) {
+	public FacilityDetailsImp(int capacity, FacilityAddressImp address, String phone) {
 		
 		this.capacity = capacity;
 		this.address = address;
