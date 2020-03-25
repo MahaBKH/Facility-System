@@ -37,8 +37,14 @@ calcProblemRateForFacility
 calcDownTimeForFacility
 listFacilityProblems
 ```
-
+# Usage
 ```
+listActualUsage
+listInspection
+calcUsageRate
+assignFacilityToUse
+vacateFacility
+isInUseDuringInterval
 ```
 
 
