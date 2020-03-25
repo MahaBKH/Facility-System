@@ -18,6 +18,29 @@ Run project in Eclipse IDE.
 ## UML Diagram
 ![UML](https://raw.githubusercontent.com/MahaBKT/Facility-System/master/Documents/UML.png)
 
+## Facility
+```
+addNewFacility
+addFacilityDetail
+removeFacility
+listFacilities
+getFacilityDetails
+```
+## Maintenance
+```
+makeFacilityMaintRequest
+scheduleMaintenance
+calcMaintenanceCostForFacility
+listMaintenance
+listMaintRequests
+calcProblemRateForFacility
+calcDownTimeForFacility
+listFacilityProblems
+```
+
+```
+```
+
 
 ## Built With
 Spring
