@@ -93,7 +93,7 @@ public class FacilityImp implements Facility {
 	             System.out.println("Capacity: " + facility.getDetails().getCapacity());
 	             
 	        } catch (Exception e) {
-	            System.err.println("Cannot retieve facility informaiton.");
+	            System.err.println("Cannot retieve facility information.");
 	        }
 		 return facility.getDetails();
 	}

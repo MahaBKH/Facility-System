@@ -2,53 +2,53 @@ package com.facility.Domain.facility;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class FacilityDetailsImpTest {
-
-	@Test
-	public void testFacilityDetails() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFacilityDetailsIntFacilityAddressStringStringStringFacility() {
-		fail("Not yet implemented");
+	public static FacilityAddressImp address;
+	public static FacilityDetailsImp d;
+	
+	@Before
+	public void setUp(){
+		address = new FacilityAddressImp("1110 Sheridan", "AL", "USA", 33303);
+		d = new FacilityDetailsImp(100, address, "55555555");
 	}
 
 	@Test
 	public void testGetCapacity() {
-		fail("Not yet implemented");
+		assertEquals(100, d.getCapacity());	
 	}
 
 	@Test
 	public void testSetCapacity() {
-		fail("Not yet implemented");
+		d.setCapacity(50);
+		assertEquals(50, d.getCapacity());	
 	}
 
 	@Test
 	public void testGetAddress() {
-		fail("Not yet implemented");
+		assertEquals(address, d.getAddress());
+		
 	}
 
 	@Test
 	public void testSetAddress() {
-		fail("Not yet implemented");
+		FacilityAddressImp addy  = new FacilityAddressImp("1110 She", "IL", "USA", 60666);
+		d.setAddress(addy);
+		assertEquals(addy, d.getAddress());
 	}
 
 	@Test
 	public void testGetPhone() {
-		fail("Not yet implemented");
+		assertEquals("55555555", d.getPhone());
 	}
 
 	@Test
 	public void testSetPhone() {
-		fail("Not yet implemented");
+		d.setPhone("2323");
+		assertEquals("2323", d.getPhone());
 	}
 
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
 
 }

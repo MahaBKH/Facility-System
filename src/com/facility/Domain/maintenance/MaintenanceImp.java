@@ -1,5 +1,7 @@
 package com.facility.Domain.maintenance;
 
+import java.util.ArrayList;
+
 import com.facility.Domain.facility.Facility;
 import  com.facility.Domain.facility.FacilityImp;
 
@@ -27,7 +29,6 @@ public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspectionImp faci
 }
 
 
-
 public Integer getFacilityMaintenanceCost() {
 	return facilityMaintenanceCost;
 }
@@ -52,15 +53,29 @@ public Facility getFacility() {
 public void setFacility(FacilityImp facility) {
 	this.facility = facility;
 }
+/*
+ * 
+ * TODO: ADD TO METHODS TO INTERFACE AS WELL 
+public MaintenanceInspectionImp makeFacilityMaintRequest(Facility facility, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID, int facilityMaintenanceCost) {}
+
+public Integer calcMaintenanceCostForFacility(Facility facility) {}
+public String calcProblemRateForFacility(Facility facility) {}
+public Integer calcDownTimeForFacility(Facility facility) {}
+
+public Maintenance scheduleMaintenance(Maintenance maint) {}
 
 
+public ArrayList<Maintenance> listMaintRequests(Facility facility){}
+
+public ArrayList<Maintenance> listMaintenance(Facility facility){}
+public ArrayList<Maintenance> listFacilityProblems(Facility facility){}
+*/
 @Override
 public String toString() {
 	return "MaintenanceImp [facilityMaintenanceCost=" + facilityMaintenanceCost + ", facilityMaintenanceDetails="
 			+ facilityMaintenanceDetails + ", facilityID=" + facilityID + ", facility=" + facility + ", inspection="
 			+ inspection + "]";
 }
-
 
 
 }

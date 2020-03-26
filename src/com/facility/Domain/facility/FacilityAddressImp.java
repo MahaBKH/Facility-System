@@ -15,10 +15,6 @@ public FacilityAddressImp(String street, String state, String country, int zip) 
 }
 
 
-public FacilityAddressImp() {
-	
-}
-
 
 public String getStreet() {
 	return street;

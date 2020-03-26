@@ -12,23 +12,24 @@ import org.junit.Test;
 import com.facility.Domain.facility.FacilityAddressImp;
 import com.facility.Domain.facility.FacilityDetailsImp;
 import com.facility.Domain.facility.FacilityImp;
+import com.facility.Domain.usage.UseImp;
 
 
 public class FacilityImpTest {
 	public static FacilityImp fac;
 	public static FacilityAddressImp address;
 	public static FacilityDetailsImp details;
-	//public static  ArrayList<FacilityImp> facilityList = new ArrayList<FacilityImp>();
 	
 	
 	
 	
+
 	@Before
 	public void setUp(){
 		address = new FacilityAddressImp("1110 Sheridan", "AL", "USA", 33303);
 		details = new FacilityDetailsImp(100, address, "55555555");
 		fac = new FacilityImp("Peet's", "11", details);
-
+		
 	}
 
 
