@@ -108,13 +108,13 @@ public ArrayList<MaintenanceImp> getAllMaintenance(){
 }
 
 //List Maintenance Requests 
-public ArrayList<MaintenanceImp> listMaintRequests(Maintenance maint){
+public ArrayList<MaintenanceImp> listMaintRequests(MaintenanceImp maint){
 	return maintReqList;
 }
 
 
 //List Facility Problems 
-public ArrayList<MaintenanceImp> listFacilityProblems(Maintenance maint){
+public ArrayList<MaintenanceImp> listFacilityProblems(MaintenanceImp maint){
 	try { 
 		System.out.println("List Facility Problems");
 		for (int i= 0; i <facilityProbList.size();i++) {
@@ -127,48 +127,49 @@ public ArrayList<MaintenanceImp> listFacilityProblems(Maintenance maint){
 	}
 
 
-public Integer calcMaintenanceCostForFacility(Facility facility) {
+public Integer calcMaintenanceCostForFacility(FacilityImp facility) {
+	Integer n = 0;
 	try {
 		System.out.println("The Cost For Maintenance: ");
-		Integer n = 0;
+		
 		for (int i = 0; i < maintList.size(); i++){
 			n = n + maintList. get(i).getFacilityMaintenanceCost();
 		}
-		return n;
+		
 	}catch (Exception e) {
 		System.err.println("Cost for Maintenance could not be calculated.");
 		}
-		return 0;
+	return n;
 	}
 	
 
-public Integer calcProblemRateForFacility(Facility facility) {
+public Integer calcProblemRateForFacility(FacilityImp facility) {
+	Integer n = 0;
 	try {
 		System.out.println("The problem Rate for facility: ");
-		Integer n = 0;
+		
 		for (int i = 0; i < maintList.size(); i++){
 			n = n + maintList. get(i).getProblemRateForFacility();
 		}
-		return n;
 	}catch (Exception e) {
 		System.err.println("Problem rate for facility could not be calculated.");
 		}
-		return 0;
+		return n;
 	}
 	
 
-public Integer calcDownTimeForFacility(Facility facility) {
+public Integer calcDownTimeForFacility(FacilityImp facility) {
+	Integer n = 0;
 	try {
 		System.out.println("The down time for facility is: ");
-		Integer n = 0;
+		
 		for (int i = 0; i < maintList.size(); i++){
 			n = n + maintList. get(i).downTimeForFacility;
 		}
-		return n;
 	}catch (Exception e) {
 		System.err.println("The down time for facility could not be calculated.");
 		}
-		return 0;
+		return n;
 }
 
 //public Maintenance scheduleMaintenance(Maintenance maint) {} 
