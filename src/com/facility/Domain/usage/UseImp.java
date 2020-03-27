@@ -29,13 +29,7 @@ public class UseImp implements Usage {
 	}
 	
 	
-	public UseImp(Integer facilityUseStart, Integer facilityUseEnd, String facilityInspectionType, FacilityImp facility) {
-		this.facilityUseStart = facilityUseStart;
-		this.facilityUseEnd = facilityUseEnd;
-		this.facilityActualUsage = facilityUseEnd - facilityUseStart;
-		this.facility = facility;
-		useList.add(this);
-	}
+
 
 	public Integer getFacilityUseStart() {
 		return facilityUseStart;
@@ -91,9 +85,8 @@ public class UseImp implements Usage {
 	
 	
 	public ArrayList<Integer> listActualUsage(){
+		ArrayList<Integer> n = new ArrayList<Integer>();
 		try {
-			ArrayList<Integer> n = new ArrayList<Integer>();
-			 System.out.println("List of Usage rates: ");
 		        for(int i = 0; i < useList.size(); i++){
 		            n.add(useList.get(i).getFacilityActualUsage());
 		        }
@@ -102,37 +95,34 @@ public class UseImp implements Usage {
 		} catch (Exception e) {
 			System.err.println("Cannot retrieve all Usages.");
 		}
-		return null;
+		return n;
 	}
 	
 	
 		public ArrayList<String> listInspection(){
+		ArrayList<String> n = new ArrayList<String>();
 		try {
-			ArrayList<String> n = new ArrayList<String>();
-			System.out.println("List of Usage rates: ");
 	        for(int i = 0; i < useList.size(); i++){
 	             n.add(useList.get(i).getFacilityInspectionType());   
 	        }
-	        return n;
 		} catch (Exception e) {
 			System.err.println("Cannot retrieve all inspections.");
 		}
-		return null;
+		 return n;
 	}
 		
 		
 		public Integer calcUsageRate() {
-		try {
-			System.out.println("List of Usage rates: ");
-			Integer n = 0;
+		int  n = 0;
+		try {			
 	        for(int i = 0; i < useList.size(); i++){
 	            n = n + useList.get(i).getFacilityActualUsage();
 	        }
-		return n;
+		
 		}catch (Exception e) {
 			System.err.println("Could not calculate price of usage.");
 		}
-		return 0;
+		return (Integer)n;
 	}
 		
 		

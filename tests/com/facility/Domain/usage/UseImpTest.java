@@ -24,15 +24,13 @@ public class UseImpTest {
 	
 	@Before
 	public void setUp(){
-		use = new UseImp(12, 15, "roof inspection");
+		use = new UseImp(12, 15, "general");
 		address = new FacilityAddressImp("1110 Sheridan", "AL", "USA", 33303);
 		details = new FacilityDetailsImp(100, address, "55555555");
-		fac4 = new FacilityImp("Peet's", "11", details);
-		
-		address2 = new FacilityAddressImp("1110 Sheridan", "AL", "USA", 33303);
-		details2 = new FacilityDetailsImp(50, address, "6305551315");
+		use.setFacilityInspectionType("general inspection");
 		fac = new FacilityImp("Peet's", "11", details);
 		use.setFacilityForUse(fac);
+		
 	}
 	@Test
 	public void testGetFacilityUseStart() {
@@ -58,7 +56,7 @@ public class UseImpTest {
 
 	@Test
 	public void testGetFacilityActualUsage() {
-		assertEquals(new Integer(9), use.getFacilityActualUsage());
+		assertEquals(new Integer(3), use.getFacilityActualUsage());
 	}
 
 	@Test
@@ -68,58 +66,52 @@ public class UseImpTest {
 	}
 	
 	@Test
-	public void testsetFacilityInspectionType() {
-		use.setFacilityForUse(fac4);
-		assertEquals(fac4, use.getFacilityForUse());
-	}
-	
-	@Test
-	public void testgetFacilityInspectionType() {
-		assertEquals(fac4, use.getFacilityForUse());
-	}
-	
-	@Test
-	public void testlistActualUsage() {
-		assertEquals(9, use.getAllUsages().size());
-	}
-	
-	@Test
-	public void getFacilityForUse() {
-		assertEquals(3, use.getAllUsages().size());
-	}
-	
-	@Test
-	public void listActualUsage() {
-		ArrayList<Integer> n = new ArrayList<Integer>();
-		n.addAll(Arrays.asList(3, 15, 3, 3));
-		
-		assertEquals(n, use.listActualUsage());
-	}
-	
-	@Test
-	public void listInspection() {
-		ArrayList<String> n = new ArrayList<String>();
-		n.add("roof inspection");
-		assertEquals(n, use.listInspection());
-	}
-	
-	@Test
-	public void calcUsageRate() {
-		assertEquals(15, use.listInspection());
-	}
-	
-	@Test
-	public void assignFacilityToUse() {
+	public void testSetFacilityInspectionType() {
+		use.setFacilityForUse(fac);
 		assertEquals(fac, use.getFacilityForUse());
 	}
 	
 	@Test
-	public void vacateFacility() {
-		assertEquals(fac4, use.vacateFacility(fac4));
+	public void testGetFacilityInspectionType() {
+		assertEquals("general inspection", use.getFacilityInspectionType());
+	}
+	
+	@Test
+	public void testGetFacilityForUse() {
+		assertEquals(9, use.getAllUsages().size());
+	}
+	
+	@Test
+	public void testListActualUsage() {
+		ArrayList<Integer> n = new ArrayList<Integer>();
+		n.addAll(Arrays.asList(15, 3, 3, 3));
+		assertEquals(n, use.listActualUsage());
+	}
+	
+	@Test
+	public void testlistInspection() {
+		ArrayList<String> n = new ArrayList<String>();
+		n.addAll(Arrays.asList("general inspection","general inspection","general inspection"));
+		assertEquals(n, use.listInspection());
+	}
+	
+	@Test
+	public void testcalcUsageRate() {
+		assertEquals((Integer)42, use.calcUsageRate());
+	}
+	
+	@Test
+	public void testassignFacilityToUse() {
+		assertEquals(fac, use.getFacilityForUse());
+	}
+	
+	@Test
+	public void testvacateFacility() {
+		assertEquals(fac, use.vacateFacility(fac));
 	}
 	
 	@Test 
-	public void isInUseDuringInterval() {
+	public void testisInUseDuringInterval() {
 		assertEquals(new Integer(3), use.isInUseDuringInterval());
 	}
 	
