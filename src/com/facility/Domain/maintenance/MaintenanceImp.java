@@ -13,10 +13,10 @@ public class MaintenanceImp implements Maintenance {
 	private int downTimeForFacility;
 	private int problemRateForFacility;
 	private String facilityID;
-	//private Facility facility;
+	private Facility facility;
 	private MaintenanceInspectionImp inspection;
 	private MaintenanceInspectionImp facilityMaintenanceDetails;
-	private FacilityImp facility;
+	
 
 	private static ArrayList<MaintenanceImp> maintList = new ArrayList<MaintenanceImp>();
 	private static ArrayList<MaintenanceImp> maintReqList = new ArrayList<MaintenanceImp>();
