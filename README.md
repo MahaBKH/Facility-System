@@ -1,6 +1,8 @@
 # Facility System Project 
 
-This project is to be used as a facility management system. A facility management system in this case, would be multiple buildings that are managed by one entity. This project was made with Spring.
+This project is a facility management system to manage multiple buildings that are managed by one entity. It carries three main classes. 
+First, The facility which carries functionalities such as adding a new facility, removing facilities and listing all of facilities. Second, facility maintenance, to help to maintain the facility. It carries functionalities such as making maintenance request and scheduling maintenance.Lastly, facility use, it carries functionalities such as determine the actual use of the facility and list all inspections of the facility .
+This project was made with Spring.
 
 
 
