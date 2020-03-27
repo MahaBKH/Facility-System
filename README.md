@@ -7,20 +7,25 @@ This project was made with Spring.
 
 
 ## Installation Instructions
+
 ```
 git clone <Repo URL> 
 ```
 
 ## Running Instructions
 
-```
-Run project in Eclipse IDE.
-```
+Please run the project using eclipse, with your eclipse workspace working accordingly.
+
+## Testing
+
+All relevant tests can be found under the tests folder. Please run using JUnit 4 to ensure that the tests run properly. Some smaller tests can also be found under view as well. 
 
 ## UML Diagram
 ![UML](https://raw.githubusercontent.com/MahaBKT/Facility-System/master/Documents/UML.png)
 
-## Facility
+## Specifications
+
+##### Facility
 ```
 addNewFacility
 addFacilityDetail
@@ -28,7 +33,8 @@ removeFacility
 listFacilities
 getFacilityDetails
 ```
-## Maintenance
+
+##### Maintenance
 ```
 makeFacilityMaintRequest
 scheduleMaintenance
@@ -39,7 +45,8 @@ calcProblemRateForFacility
 calcDownTimeForFacility
 listFacilityProblems
 ```
-# Usage
+
+##### Usage
 ```
 listActualUsage
 listInspection
