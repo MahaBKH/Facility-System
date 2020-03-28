@@ -34,8 +34,16 @@ public class MaintenanceImpTest {
 			
 		
 	}
+	@Test
+	public void testMaintenanceImpIntMaintenanceInspectionImpStringFacilityImpMaintenanceInspectionImp() {
+		assertEquals(main,insp,"1234", details);
+	}
 
-
+	//private void assertEquals(MaintenanceImp main2, MaintenanceInspectionImp insp2, String string,
+			//MaintenanceInspectionImp details3) {
+		// TODO Auto-generated method stub
+		
+	}
 	@Test
 	public void testGetFacilityMaintenanceCost() {
 		//main.setFacilityMaintenanceCost("333");
@@ -59,7 +67,7 @@ public class MaintenanceImpTest {
 		main.setFacilityMaintenanceDetails(details);
 		assertEquals(details, main.getFacilityMaintenanceDetails());
 		
-		
+
 	}
 
 	@Test
@@ -67,6 +75,10 @@ public class MaintenanceImpTest {
 		assertEquals("333", main.getFacilityMaintenanceCost());
 		
 		
+	}
+	@Test
+	public void testGetFacilityID() {
+		assertEquals("1234", faci.getFacilityId());
 	}
 
 	@Test
