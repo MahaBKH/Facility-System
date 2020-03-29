@@ -24,7 +24,7 @@ All relevant tests can be found under the tests folder. Please run using JUnit 4
 ![UML](https://raw.githubusercontent.com/MahaBKT/Facility-System/master/Documents/UML.png)
 
 ## Spring Elements information
-The bean configurations for Spring can be found under src/META-INF/app-context.xml. The bean graph is shown below:
+The bean configurations for Spring can be found under src/META-INF/app-context.xml. The bean graph shows the different classes and objects and their relationships to one another. The bean graph is shown below:
 ![SPRING](https://raw.githubusercontent.com/MahaBKT/Facility-System/master/Documents/Spring.png)
 
 
