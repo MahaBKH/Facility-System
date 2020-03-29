@@ -77,8 +77,10 @@ public class FacilitySystemClient {
 		m.scheduleMaintenance(maint);
 		maint.makeFacilityMaintRequest(facility, inspection, facility.getFacilityId(), maint.getFacilityMaintenanceCost());
 		maint.listMaintRequests(facility);
-		maint.listMaintenance(facility);
-		maint.listFacilityProblems(facility);
+		
+		maint.getAllMaintenance();
+		maint.listFacilityProblems(maint);
+		
 		maint.calcProblemRateForFacility(facility);
 		maint.calcDownTimeForFacility(facility);
 		
