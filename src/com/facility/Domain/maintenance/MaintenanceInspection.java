@@ -12,5 +12,6 @@ public interface MaintenanceInspection {
 	public void setInspectionReport(String report);
 	public void setRequestDate(Date now);
 	public String toString();
+	public void scheduleMaintenance(MaintenanceImp maint);
 	
 }

@@ -67,7 +67,14 @@ public Facility getFacility() {
 public void setFacility(FacilityImp facility) {
 	this.facility = facility;
 }
- 
+public void getAllMaintenance() {
+	// TODO Auto-generated method stub
+	
+}
+public void setFacilityID(String facilityId2) {
+	// TODO Auto-generated method stub
+	
+}
 
 //Allows facilities to report any problems that they may have
 public void reportProblemForFacility(FacilityImp facility, String problem) {
@@ -216,8 +223,6 @@ public String toString() {
 			 + ", facility=" + facility + ", inspection="
 			+ inspection + "]";
 }
-
-
 
 
 }
