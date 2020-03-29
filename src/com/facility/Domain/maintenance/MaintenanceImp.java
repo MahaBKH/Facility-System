@@ -25,20 +25,22 @@ public class MaintenanceImp implements Maintenance {
 
 
 public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
-		FacilityImp facility, MaintenanceInspectionImp inspection) {
+		FacilityImp facility, MaintenanceInspectionImp inspection, int downTimeForFacility,int problemRateForFacility) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
 	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
 	this.facilityID = facilityID;
 	this.facility = facility;
+	this.downTimeForFacility = downTimeForFacility;
+	this.problemRateForFacility = problemRateForFacility;
 	maintList.add(this);	
 
 }
-	public MaintenanceImp(int downTimeForFacility,int problemRateForFacility) {
+	//public MaintenanceImp(int downTimeForFacility,int problemRateForFacility) {
 	//constructors
-	this.downTimeForFacility = downTimeForFacility;
-	this.problemRateForFacility = problemRateForFacility;
+	//this.downTimeForFacility = downTimeForFacility;
+	//this.problemRateForFacility = problemRateForFacility;
  
-}
+//}
  
 //Get Facility Maintenance Cost
 public Integer getFacilityMaintenanceCost() {
