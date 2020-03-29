@@ -2,6 +2,7 @@ package com.facility.View;
 
 import com.facility.Domain.facility.FacilityImp;
 import com.facility.Domain.maintenance.MaintenanceImp;
+import com.facility.Domain.maintenance.MaintenanceInspection;
 import com.facility.Domain.maintenance.MaintenanceInspectionImp;
 import com.facility.Domain.service.FacilityService;
 import com.facility.Domain.service.MaintenanceService;
@@ -60,29 +61,29 @@ public class FacilitySystemClient {
 		maint.setFacilityMaintenanceDetails(inspection);
 		
 		//facility service
-		FacilityService management = new FacilityService();
-		management.addNewFacility(facility);
-		management.addFacilityDetail(details);
-		management.listFacilities();
-		management.requestAvailableCapacity(facility);
-		management.getFacilityInformation(facility);
-		management.removeFacility(facility);
+		
+		facility.addNewFacility(facility);
+		facility.addFacilityDetail(details);
+		facility.listFacilities();
+		facility.requestAvailableCapacity(facility);
+		facility.getFacilityInformation(facility);
+		facility.removeFacility(facility);
 		
 		
 		//maintenance service 
-		MaintenanceService m = new MaintenanceService();
+		MaintenanceInspection m = new MaintenanceInspection();
 	
-		m.calcMaintenanceCostForFacility(facility);
+		maint.calcMaintenanceCostForFacility(facility);
 		m.scheduleMaintenance(maint);
-		m.makeFacilityMaintRequest(facility, inspection, facility.getFacilityId(), maint.getFacilityMaintenanceCost());
-		m.listMaintRequests(facility);
-		m.listMaintenance(facility);
-		m.listFacilityProblems(facility);
-		m.calcProblemRateForFacility(facility);
-		m.calcDownTimeForFacility(facility);
+		maint.makeFacilityMaintRequest(facility, inspection, facility.getFacilityId(), maint.getFacilityMaintenanceCost());
+		maint.listMaintRequests(facility);
+		maint.listMaintenance(facility);
+		maint.listFacilityProblems(facility);
+		maint.calcProblemRateForFacility(facility);
+		maint.calcDownTimeForFacility(facility);
 		
 			//Usage Service
-		UsageService use = new UsageService();
+		UseImp use = new UseImp();
 		use.listActualUsage();
 		use.listInspection();
 		

@@ -8,6 +8,9 @@ public class FacilityDetailsImp {
 	private FacilityAddressImp address;
 	private String phone;
 
+	public FacilityDetailsImp() {
+		
+	}
 	
 	public FacilityDetailsImp(int capacity, FacilityAddressImp address, String phone) {
 		

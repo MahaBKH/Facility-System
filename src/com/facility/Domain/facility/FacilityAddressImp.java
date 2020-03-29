@@ -6,6 +6,10 @@ public String state;
 public String country;
 public int zip;
 
+public FacilityAddressImp() {
+	
+}
+
 public FacilityAddressImp(String street, String state, String country, int zip) {
 	
 	this.street = street;

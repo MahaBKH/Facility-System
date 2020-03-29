@@ -26,7 +26,7 @@ public class MaintenanceImpTest {
 	
 	@Before
 	public void setUp() {
-		main = new MaintenanceImp (30, details,"BB123",faci,insp);
+		main = new MaintenanceImp(30, details,"BB123",faci,insp);
 		faci = new FacilityImp ("Shardien","1234",details2);
 		details2 = new FacilityDetailsImp(100, address, "666555");
 		address = new FacilityAddressImp ("winrhtop", "WA","USA", 606440);

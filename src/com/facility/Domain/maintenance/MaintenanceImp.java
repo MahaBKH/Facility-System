@@ -23,6 +23,9 @@ public class MaintenanceImp implements Maintenance {
 	private ArrayList<MaintenanceImp> facilityProbList = new ArrayList<MaintenanceImp>();
 
 
+public MaintenanceImp() {
+	
+}
 
 public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
 		FacilityImp facility, MaintenanceInspectionImp inspection, int downTimeForFacility,int problemRateForFacility) {
@@ -35,6 +38,8 @@ public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspectionImp faci
 	maintList.add(this);	
 
 }
+
+
 	//public MaintenanceImp(int downTimeForFacility,int problemRateForFacility) {
 	//constructors
 	//this.downTimeForFacility = downTimeForFacility;

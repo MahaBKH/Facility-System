@@ -19,6 +19,9 @@ public class UseImp implements Usage {
 	
 	private static ArrayList<UseImp> useList = new ArrayList<UseImp>();
 	
+	public UseImp(){
+		
+	}
 	
 	public UseImp(Integer facilityUseStart, Integer facilityUseEnd, String facilityInspectionType) {
 		this.facilityUseStart = facilityUseStart;

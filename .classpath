@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="tests"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/commons-logging-1.2 2.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aop-3.2.0.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aop-3.2.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aop-3.2.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aspects-3.2.0.RELEASE-javadoc.jar">
-		<attributes>
-			<attribute name="org.eclipse.ajdt.aspectpath" value="org.eclipse.ajdt.aspectpath"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aspects-3.2.0.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aspects-3.2.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-aspects-3.2.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-beans-3.2.0.RELEASE-javadoc.jar"/>
@@ -66,6 +61,6 @@
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-webmvc-portlet-3.2.0.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-webmvc-portlet-3.2.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/spring-framework-3.2.0.RELEASE/libs/spring-webmvc-portlet-3.2.0.RELEASE.jar"/>
-	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="/Users/paulinusia/Downloads/commons-logging-1.2 2.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

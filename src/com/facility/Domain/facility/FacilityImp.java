@@ -16,7 +16,9 @@ public class FacilityImp implements Facility {
 	private static ArrayList<FacilityImp> facilityList = new ArrayList<FacilityImp>();
 	
 
-	
+	public FacilityImp() {
+		
+	}
 
 	public FacilityImp(String name, String facilityID, FacilityDetailsImp details) {
 		this.name = name;

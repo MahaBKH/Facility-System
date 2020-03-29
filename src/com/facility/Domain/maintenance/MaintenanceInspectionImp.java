@@ -12,7 +12,7 @@ private String detail;
 private Date requestDate;
 
 public MaintenanceInspectionImp() {
-	// TODO Auto-generated constructor stub
+	
 }
 
 public MaintenanceInspectionImp(Date inspectionDate, String inspectionType, String inspectionReport, String urgency,
