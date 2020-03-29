@@ -50,13 +50,19 @@ public void setInspectionReport(String report) {
 	this.inspectionReport = report;
 	
 }
-
+public void setRequestDate(Date now) {
+	
+}
 
 @Override
 public String toString() {
 	return "MaintenanceInspection [inspectionDate=" + inspectionDate + ", inspectionType=" + inspectionType
 			+ ", inspectionReport=" + inspectionReport + ", urgency=" + urgency +  "]";
 }
+
+
+
+
 
 
 
