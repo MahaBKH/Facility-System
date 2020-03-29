@@ -14,10 +14,10 @@ public interface Maintenance {
 	public void setFacilityID(String facilityID);
 	public Facility getFacility();
 	public void setFacility(FacilityImp facility);
-	public Integer calcProblemRateForFacility(Facility facility);
-	public Integer calcDownTimeForFacility(Facility facility);
-	public Integer calcMaintenanceCostForFacility(Facility facility);
-	public ArrayList<MaintenanceImp> listFacilityProblems(Maintenance maint);
-	public ArrayList<MaintenanceImp> listMaintRequests(Maintenance maint);
+	public Integer calcProblemRateForFacility(FacilityImp facility);
+	public Integer calcDownTimeForFacility(FacilityImp facility);
+	public Integer calcMaintenanceCostForFacility(FacilityImp facility);
+	public ArrayList<MaintenanceImp> listFacilityProblems(MaintenanceImp maint);
+	public ArrayList<MaintenanceImp> listMaintRequests(MaintenanceImp maint);
 	public ArrayList<MaintenanceImp> getAllMaintenance();
 }
