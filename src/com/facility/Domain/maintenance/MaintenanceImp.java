@@ -1,6 +1,10 @@
 package com.facility.Domain.maintenance;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+
 
 import com.facility.Domain.facility.Facility;
 import  com.facility.Domain.facility.FacilityImp;
@@ -8,187 +12,209 @@ import  com.facility.Domain.facility.FacilityImp;
 import com.facility.Domain.maintenance.MaintenanceInspectionImp;
 
 public class MaintenanceImp implements Maintenance {
+	private Integer facilityMaintenanceCost;
+	
 
-	private int facilityMaintenanceCost;
-	private int downTimeForFacility;
-	private int problemRateForFacility;
 	private String facilityID;
 	private Facility facility;
 	private MaintenanceInspectionImp inspection;
-	private MaintenanceInspectionImp facilityMaintenanceDetails;
-	
 
+	//CONTAINS ALL NEEDED MAINTENANCE, WHETHER IT BE LOW URGENCY OR HIGH URGENCY
 	private static ArrayList<MaintenanceImp> maintList = new ArrayList<MaintenanceImp>();
-	private static ArrayList<MaintenanceImp> maintReqList = new ArrayList<MaintenanceImp>();
-	private ArrayList<MaintenanceImp> facilityProbList = new ArrayList<MaintenanceImp>();
+	
+	//CONTAINS ALL SCHEDULED MAINTENANCE
+	private static ArrayList<MaintenanceInspectionImp> scheduledMaint = new ArrayList<MaintenanceInspectionImp>();
 
+	//CONTAINS ALL PROBLEMS FOR FACILITY
+	HashMap<FacilityImp, ArrayList<String>> facilityProblems = new HashMap<>();
+	
+	//CONTAINS ALL OF THE REQUESTS THAT ARE CURRENTLY IN PROGRESS FOR MAINTENANCE
+	HashMap<FacilityImp, ArrayList<Object>> requestList = new HashMap<>();
 
 public MaintenanceImp() {
 	
 }
 
-public MaintenanceImp(int facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
-		FacilityImp facility, MaintenanceInspectionImp inspection, int downTimeForFacility,int problemRateForFacility) {
+
+public MaintenanceImp(Integer facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
+		FacilityImp facility, MaintenanceInspectionImp inspection, Integer downTimeForFacility, Integer problemRateForFacility) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
-	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
 	this.facilityID = facilityID;
 	this.facility = facility;
-	this.downTimeForFacility = downTimeForFacility;
-	this.problemRateForFacility = problemRateForFacility;
-	maintList.add(this);	
 
+	maintList.add(this);
 }
 
-
-	//public MaintenanceImp(int downTimeForFacility,int problemRateForFacility) {
-	//constructors
-	//this.downTimeForFacility = downTimeForFacility;
-	//this.problemRateForFacility = problemRateForFacility;
- 
-//}
- 
-//Get Facility Maintenance Cost
 public Integer getFacilityMaintenanceCost() {
 	return facilityMaintenanceCost;
 }
-//Updates Facility Maintenance Cost
-public void setFacilityMaintenanceCost(int facilityMaintenanceCost) {
+
+public void setFacilityMaintenanceCost(Integer facilityMaintenanceCost) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
 }
-//Gets Down Time For Facility
-public Integer getDownTimeForFacility() {
-	return downTimeForFacility;
-}
-//Updates Down Time For Facility
-public void setDownTimeForFacility(int downTimeForFacility) {
-	this.downTimeForFacility = downTimeForFacility;
-}
-//Gets problem Rate For Facility
-public Integer getProblemRateForFacility() {
-	return problemRateForFacility;
-}
-//Updates problem Rate For Facility
-public void setProblemRateForFacility(int problemRateForFacility) {
-	this.problemRateForFacility = problemRateForFacility;
-}
-// Gets Facility Maintenance Details
+
+//Returns the maintenance inspection details
 public MaintenanceInspectionImp getFacilityMaintenanceDetails() {
 	return inspection;
 }
-// Updates Facility Maintenance Details
+
 public void setFacilityMaintenanceDetails(MaintenanceInspectionImp inspection) {
 	this.inspection = inspection;
-}
-//GETS FACILITY ID
-public String getFacilityID() {
-	return facilityID;
-}
-//UPDATES FACILITY ID
-public void setFacilityID(String facilityID) {
-	this.facilityID = facilityID;
-}
-//Gets Facility
+}	
+
 public Facility getFacility() {
 	return facility;
 }
-//Update Facility
+
 public void setFacility(FacilityImp facility) {
 	this.facility = facility;
 }
  
 
-
-
-public MaintenanceInspectionImp makeFacilityMaintRequest (Facility facility, MaintenanceInspectionImp facilityMaintenanceDetails, 
-String facilityID, int facilityMaintenanceCost) {
-	this.facility = facility;
-	this.facilityID = facilityID;
-	this.facilityMaintenanceCost = facilityMaintenanceCost;
-	this.facilityMaintenanceDetails = facilityMaintenanceDetails;
-	maintReqList.add(this);
-	return facilityMaintenanceDetails;	
+//Allows facilities to report any problems that they may have
+public void reportProblemForFacility(FacilityImp facility, String problem) {
+	if(facilityProblems.containsKey(facility)) {
+		facilityProblems.get(facility).add(problem);
+	}else {
+		ArrayList<String> prob = new ArrayList<String>();
+		prob.add(problem);
+		facilityProblems.put(facility, prob);
+	}
 }
 
-//List all Maintenance
-public ArrayList<MaintenanceImp> getAllMaintenance(){
+// Lists all of the problems for the facility, if there are not problems reported, then a null value will be returned.
+public ArrayList<String> listFacilityProblems(FacilityImp facility){
+	if(!(facilityProblems.containsKey(facility))) {
+		System.out.println("This facility currently does not have any problems reported.");
+		return null;
+	}
+	return facilityProblems.get(facility);
+}
+
+// Calculates the problem rate for the facility
+public Integer calcProblemRateForFacility(FacilityImp facility) {
+	Integer n = 0;
+	
+		if(!(facilityProblems.containsKey(facility))) {
+			System.out.println("This facility currently does not have any problems reported.");
+			return n;
+		}
+		
+		return (Integer)facilityProblems.get(facility).size();
+	}
+
+//Adds new maintenance request
+public MaintenanceInspectionImp makeFacilityMaintRequest (FacilityImp facility, MaintenanceInspectionImp inspection, Integer facilityMaintenanceCost) {
+	
+	if (!(requestList.containsKey(facility))) {
+		ArrayList<Object> values = new ArrayList<>();
+		values.add(inspection);
+		values.add(facilityMaintenanceCost);
+		
+		requestList.put(facility, values);
+		
+	}
+	requestList.get(facility).add(inspection);	
+	requestList.get(facility).add(facilityMaintenanceCost);	
+	return inspection;	
+}
+
+
+//Adds maintenance request to the schedule
+public MaintenanceInspectionImp scheduleMaintenance(Date inspectionDate, String inspectionType, String inspectionReport, String urgency,
+		String detail, Date requestDate) {
+	MaintenanceInspectionImp inspect = new MaintenanceInspectionImp();
+	inspect.setInspectionDate(inspectionDate);
+	inspect.setInspectionReport(inspectionReport);
+	inspect.setUrgency(urgency);
+	inspect.setInspectionType(inspectionType);
+	
+	scheduledMaint.add(inspect);
+	return inspect;
+}
+
+//List all available Maintenance
+public ArrayList<MaintenanceImp> listMaintenance(){
 	return maintList;
 }
 
-//List Maintenance Requests 
-public ArrayList<MaintenanceImp> listMaintRequests(MaintenanceImp maint){
-	return maintReqList;
+//List Maintenance Requests for a facility
+public ArrayList<Object> listMaintRequests(FacilityImp facility){
+	if (!(requestList.containsKey(facility))) {
+		System.out.println("This facility has not made any maintenance reuqests yet!");
+		return null;
+	}
+	
+	ArrayList<Object> results = requestList.get(facility);
+	ArrayList<Object> ans = new ArrayList<Object>();
+	
+	for (int i = 0; i<results.size(); i++) {
+		if (results.get(i) instanceof MaintenanceInspectionImp) {
+			ans.add(results.get(i));
+		}
+	}
+	return ans;
 }
 
 
-//List Facility Problems 
-public ArrayList<MaintenanceImp> listFacilityProblems(MaintenanceImp maint){
-	try { 
-		System.out.println("List Facility Problems");
-		for (int i= 0; i <facilityProbList.size();i++) {
-			System.out.println(facilityProbList.get(i).getFacilityMaintenanceDetails()); 
-		}
-		}catch (Exception e) {
-			System.err.println("Cannot retrieve all Facility Problems.");	
-		}
-	return facilityProbList;
-	}
-
-
+//Calculates the total Maintenance cost for the facility
 public Integer calcMaintenanceCostForFacility(FacilityImp facility) {
-	Integer n = 0;
-	try {
-		System.out.println("The Cost For Maintenance: ");
-		
-		for (int i = 0; i < maintList.size(); i++){
-			n = n + maintList. get(i).getFacilityMaintenanceCost();
-		}
-		
-	}catch (Exception e) {
-		System.err.println("Cost for Maintenance could not be calculated.");
-		}
-	return n;
+	int n = 0;
+	if (!(requestList.containsKey(facility))) {
+		System.out.println("This facility has not made any maintenance requests yet!");
+		return (Integer)n;
 	}
+	ArrayList<Object> results = requestList.get(facility);
+	
+	for (int i = 0; i<results.size(); i++) {
+		if (results.get(i) instanceof Integer) {
+			n = n + (int)results.get(i);
+		}
+	}
+	return (Integer)n;
+}
 	
 
-public Integer calcProblemRateForFacility(FacilityImp facility) {
-	Integer n = 0;
-	try {
-		System.out.println("The problem Rate for facility: ");
-		
-		for (int i = 0; i < maintList.size(); i++){
-			n = n + maintList. get(i).getProblemRateForFacility();
-		}
-	}catch (Exception e) {
-		System.err.println("Problem rate for facility could not be calculated.");
-		}
-		return n;
-	}
-	
-
-public Integer calcDownTimeForFacility(FacilityImp facility) {
-	Integer n = 0;
-	try {
-		System.out.println("The down time for facility is: ");
-		
-		for (int i = 0; i < maintList.size(); i++){
-			n = n + maintList. get(i).downTimeForFacility;
-		}
-	}catch (Exception e) {
-		System.err.println("The down time for facility could not be calculated.");
-		}
-		return n;
+public long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
+    long diffInMillies = date2.getTime() - date1.getTime();
+    return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
 }
 
 
+//Calculates facility downtime in hours by finding the furthest date for a scheduled inspection for the selected facility
+public Long calcDownTimeForFacility(FacilityImp facility) {
+	Long n = null;
+	if (!(requestList.containsKey(facility))) {
+		System.out.println("This facility has no maintenance problems");
+		return n;
+	}
+	
+	ArrayList<Object> results = requestList.get(facility);
+	
+	for (int i = 0; i<results.size(); i++) {
+		if (results.get(i) instanceof MaintenanceInspectionImp) {
+			
+			Date d = ((MaintenanceInspectionImp) results.get(i)).getInspectionDate();
+			
+			if (((Date) results.get(i)).after(d)) {
+				d = (Date) results.get(i);
+			}
+			
+			Date date = new Date();
+			
+			n =  getDateDiff(date, d, TimeUnit.HOURS);
+		}
+}
+	return n;
+}
 
 
 @Override
 public String toString() {
 	return "MaintenanceImp [facilityMaintenanceCost=" + facilityMaintenanceCost + ", facilityMaintenanceDetails="
-			+ facilityMaintenanceDetails + ", facilityID=" + facilityID + ", facility=" + facility + ", inspection="
+			 + ", facilityID=" + facilityID + ", facility=" + facility + ", inspection="
 			+ inspection + "]";
 }
-
 
 
 }

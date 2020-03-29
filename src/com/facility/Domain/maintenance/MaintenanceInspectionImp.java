@@ -8,8 +8,7 @@ private Date inspectionDate;
 private String inspectionType;
 private String inspectionReport;
 private String urgency;
-private String detail;
-private Date requestDate;
+
 
 public MaintenanceInspectionImp() {
 	
@@ -21,8 +20,6 @@ public MaintenanceInspectionImp(Date inspectionDate, String inspectionType, Stri
 	this.inspectionType = inspectionType;
 	this.inspectionReport = inspectionReport;
 	this.urgency = urgency;
-	this.detail = detail;
-	this.requestDate = requestDate;
 }
 
 
@@ -48,11 +45,6 @@ public void setUrgency(String urgency) {
 }
 
 
-public void setRequestDate(Date now) {
-	this.requestDate = now;
-	
-	
-}
 
 public void setInspectionReport(String report) {
 	this.inspectionReport = report;
@@ -63,8 +55,7 @@ public void setInspectionReport(String report) {
 @Override
 public String toString() {
 	return "MaintenanceInspection [inspectionDate=" + inspectionDate + ", inspectionType=" + inspectionType
-			+ ", inspectionReport=" + inspectionReport + ", urgency=" + urgency + ", detail=" + detail
-			+ ", requestDate=" + requestDate + "]";
+			+ ", inspectionReport=" + inspectionReport + ", urgency=" + urgency +  "]";
 }
 
 
