@@ -93,7 +93,7 @@ public void setFacility(FacilityImp facility) {
  
 
 
-/* TODO: ADD TO METHODS TO INTERFACE AS WELL */
+
 public MaintenanceInspectionImp makeFacilityMaintRequest (Facility facility, MaintenanceInspectionImp facilityMaintenanceDetails, 
 String facilityID, int facilityMaintenanceCost) {
 	this.facility = facility;
