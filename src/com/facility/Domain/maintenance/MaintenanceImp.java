@@ -174,7 +174,6 @@ public Integer calcDownTimeForFacility(FacilityImp facility) {
 		return n;
 }
 
-//public Maintenance scheduleMaintenance(Maintenance maint) {} 
 
 
 
