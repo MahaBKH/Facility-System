@@ -26,8 +26,7 @@ public interface Maintenance {
 	
 	public MaintenanceInspectionImp makeFacilityMaintRequest (FacilityImp facility, MaintenanceInspectionImp inspection, Integer facilityMaintenanceCost); 
 		
-	public MaintenanceInspectionImp scheduleMaintenance(Date inspectionDate, String inspectionType, String inspectionReport, String urgency,
-			String detail, Date requestDate);
+	public MaintenanceInspectionImp scheduleMaintenance(Date inspectionDate, String inspectionType, String inspectionReport, String urgency);
 	public Integer calcMaintenanceCostForFacility(FacilityImp facility);
 	public ArrayList<MaintenanceImp> listMaintenance();
 	public ArrayList<Object> listMaintRequests(FacilityImp facility);
@@ -38,6 +37,6 @@ public interface Maintenance {
 	public ArrayList<String> listFacilityProblems(FacilityImp facility);
 	public void reportProblemForFacility(FacilityImp facility, String problem);
 	
-	public long getDateDiff(Date date1, Date date2, TimeUnit timeUnit);
-	public String toString();
+	long getDateDiff(Date date1, Date date2);
+	String toString();
 }

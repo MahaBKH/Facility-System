@@ -15,7 +15,7 @@ public class MaintenanceImp implements Maintenance {
 	private Integer facilityMaintenanceCost;
 	
 
-	private String facilityID;
+
 	private Facility facility;
 	private MaintenanceInspectionImp inspection;
 
@@ -36,12 +36,10 @@ public MaintenanceImp() {
 }
 
 
-public MaintenanceImp(Integer facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
-		FacilityImp facility, MaintenanceInspectionImp inspection, Integer downTimeForFacility, Integer problemRateForFacility) {
+public MaintenanceImp(Integer facilityMaintenanceCost, MaintenanceInspectionImp inspection, FacilityImp facility) {
 	this.facilityMaintenanceCost = facilityMaintenanceCost;
-	this.facilityID = facilityID;
 	this.facility = facility;
-
+	this.inspection = inspection;
 	maintList.add(this);
 }
 
@@ -104,25 +102,24 @@ public Integer calcProblemRateForFacility(FacilityImp facility) {
 	}
 
 //Adds new maintenance request
-public MaintenanceInspectionImp makeFacilityMaintRequest (FacilityImp facility, MaintenanceInspectionImp inspection, Integer facilityMaintenanceCost) {
+public MaintenanceInspectionImp makeFacilityMaintRequest (FacilityImp facility, MaintenanceInspectionImp m, Integer facilityMaintenanceCost) {
 	
 	if (!(requestList.containsKey(facility))) {
 		ArrayList<Object> values = new ArrayList<>();
-		values.add(inspection);
+		values.add(m);
 		values.add(facilityMaintenanceCost);
 		
 		requestList.put(facility, values);
 		
 	}
-	requestList.get(facility).add(inspection);	
+	requestList.get(facility).add(m);	
 	requestList.get(facility).add(facilityMaintenanceCost);	
-	return inspection;	
+	return m;	
 }
 
 
 //Adds maintenance request to the schedule
-public MaintenanceInspectionImp scheduleMaintenance(Date inspectionDate, String inspectionType, String inspectionReport, String urgency,
-		String detail, Date requestDate) {
+public MaintenanceInspectionImp scheduleMaintenance(Date inspectionDate, String inspectionType, String inspectionReport, String urgency) {
 	MaintenanceInspectionImp inspect = new MaintenanceInspectionImp();
 	inspect.setInspectionDate(inspectionDate);
 	inspect.setInspectionReport(inspectionReport);
@@ -175,9 +172,11 @@ public Integer calcMaintenanceCostForFacility(FacilityImp facility) {
 }
 	
 
-public long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
+public long getDateDiff(Date date1, Date date2) {
     long diffInMillies = date2.getTime() - date1.getTime();
-    return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
+
+    return TimeUnit.MILLISECONDS.toDays(diffInMillies);
+
 }
 
 
@@ -190,19 +189,21 @@ public Long calcDownTimeForFacility(FacilityImp facility) {
 	}
 	
 	ArrayList<Object> results = requestList.get(facility);
-	
+	Date now = new Date();
+	Date d = new Date();
 	for (int i = 0; i<results.size(); i++) {
 		if (results.get(i) instanceof MaintenanceInspectionImp) {
 			
-			Date d = ((MaintenanceInspectionImp) results.get(i)).getInspectionDate();
+			MaintenanceInspectionImp ins = (MaintenanceInspectionImp) results.get(i);
+//			System.out.println(ins.getInspectionDate());
+			if (ins.getInspectionDate().after(d)) {
+				d = ins.getInspectionDate();
+			}else {
+				continue;}
 			
-			if (((Date) results.get(i)).after(d)) {
-				d = (Date) results.get(i);
-			}
 			
-			Date date = new Date();
 			
-			n =  getDateDiff(date, d, TimeUnit.HOURS);
+			n =  getDateDiff(now, d);
 		}
 }
 	return n;
@@ -211,10 +212,12 @@ public Long calcDownTimeForFacility(FacilityImp facility) {
 
 @Override
 public String toString() {
-	return "MaintenanceImp [facilityMaintenanceCost=" + facilityMaintenanceCost + ", facilityMaintenanceDetails="
-			 + ", facilityID=" + facilityID + ", facility=" + facility + ", inspection="
+	return "MaintenanceImp [facilityMaintenanceCost=" 
+			 + ", facility=" + facility + ", inspection="
 			+ inspection + "]";
 }
+
+
 
 
 }

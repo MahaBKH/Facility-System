@@ -4,12 +4,11 @@ import com.facility.Domain.facility.FacilityImp;
 import com.facility.Domain.maintenance.MaintenanceImp;
 import com.facility.Domain.maintenance.MaintenanceInspection;
 import com.facility.Domain.maintenance.MaintenanceInspectionImp;
-import com.facility.Domain.service.FacilityService;
-import com.facility.Domain.service.MaintenanceService;
-import com.facility.Domain.service.UsageService;
+
 import com.facility.Domain.usage.Usage;
 import com.facility.Domain.usage.UseImp;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.facility.Domain.facility.FacilityAddressImp;
@@ -19,7 +18,7 @@ public class FacilitySystemClient {
 	public static void main (String args[]) throws Exception {
 		
 		//new facility
-		
+		SimpleDateFormat sd = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	
 		
 		FacilityDetailsImp details = new FacilityDetailsImp();
@@ -45,17 +44,23 @@ public class FacilitySystemClient {
 		//new maintenance
 		MaintenanceImp maint = new MaintenanceImp();
 		MaintenanceInspectionImp inspection = new MaintenanceInspectionImp();
+		MaintenanceInspectionImp ins = new MaintenanceInspectionImp();
 		maint.setFacility(facility);
-		maint.setFacilityID(facility.getFacilityId());
 		maint.setFacilityMaintenanceCost(150);
+		String mThree = "03/03/2020 17:00:00";
+		String mT = "05/19/2020 12:00:00";
 		
-		Date date = new Date(2020, 03, 20, 0, 0);
-		Date now = new Date();
+		Date date = sd.parse(mThree);
+		
+		Date soon = sd.parse(mT);
 		inspection.setInspectionDate(date);
 		
 		inspection.setInspectionReport("SCHEDULED");
+		ins.setInspectionReport("REPORTED");
+		ins.setInspectionDate(soon);
 		inspection.setInspectionType("SEMI-ANNUAL");
-		inspection.setRequestDate(now);
+		ins.setInspectionType("ANNUAL");
+		ins.setUrgency("LOW");
 		inspection.setUrgency("LOW");
 		
 		maint.setFacilityMaintenanceDetails(inspection);
@@ -69,21 +74,35 @@ public class FacilitySystemClient {
 		facility.getFacilityInformation(facility);
 		facility.removeFacility(facility);
 		
-		
 		//maintenance service 
-		MaintenanceInspection m = new MaintenanceInspection();
-	
-		maint.calcMaintenanceCostForFacility(facility);
-		m.scheduleMaintenance(maint);
-		maint.makeFacilityMaintRequest(facility, inspection, facility.getFacilityId(), maint.getFacilityMaintenanceCost());
-		maint.listMaintRequests(facility);
+		//Integer facilityMaintenanceCost, MaintenanceInspectionImp facilityMaintenanceDetails, String facilityID,
+		//FacilityImp facility, MaintenanceInspectionImp inspection, Integer downTimeForFacility, Integer problemRateForFacility
+		MaintenanceImp m = new MaintenanceImp(100, ins, facility);
+
+//		Date(int year, int month, int date)
+		Date inspectionDate = new Date(20, 07, 23);
+//		maint.scheduleMaintenance(inspectionDate, "roof inspection", "tiles sliding", "LOW");
 		
-		maint.getAllMaintenance();
-		maint.listFacilityProblems(maint);
+		//FacilityImp facility, MaintenanceInspectionImp inspection, Integer facilityMaintenanceCost
+		maint.makeFacilityMaintRequest(facility, ins, maint.getFacilityMaintenanceCost());
 		
-		maint.calcProblemRateForFacility(facility);
-		maint.calcDownTimeForFacility(facility);
 		
+		
+		maint.makeFacilityMaintRequest(facility, inspection, 200);
+
+		System.out.println("CURRENT LIST OF MAINTENANCE REQUESTS PUT IN PLACE: " + maint.listMaintRequests(facility)+ '\n');
+		
+		System.out.println("CURRENT LIST OF MAINT:" + maint.listMaintenance() + '\n');
+		
+		maint.reportProblemForFacility(facility, "Leaky roof");
+		maint.reportProblemForFacility(facility, "electricity outage");
+		maint.reportProblemForFacility(facility, "plumbing issue");
+		System.out.println("This current facility has " + maint.calcProblemRateForFacility(facility) + " problems."+ '\n');
+		System.out.println("The facility problems are: " + maint.listFacilityProblems(facility)+ '\n');
+		System.out.println("Current Downtime for facility: " + (maint.calcDownTimeForFacility(facility)) + " Days."+ '\n');
+		System.out.println("CURRENT MAINT COST: " +  maint.calcMaintenanceCostForFacility(facility)+ '\n');
+		maint.scheduleMaintenance(inspectionDate, "ANNUAL", "SCHEDULED", "LOW");
+
 			//Usage Service
 		UseImp use = new UseImp();
 		use.listActualUsage();
