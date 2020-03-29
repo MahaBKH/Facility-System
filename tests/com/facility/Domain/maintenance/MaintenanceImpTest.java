@@ -26,7 +26,7 @@ public class MaintenanceImpTest {
 	
 	@Before
 	public void setUp() {
-		main = new MaintenanceImp(30, details,"BB123",faci,insp);
+		main = new MaintenanceImp();
 		faci = new FacilityImp ("Shardien","1234",details2);
 		details2 = new FacilityDetailsImp(100, address, "666555");
 		address = new FacilityAddressImp ("winrhtop", "WA","USA", 606440);
@@ -35,7 +35,7 @@ public class MaintenanceImpTest {
 		
 	}
 	@Test
-	public void testMaintenanceImpIntMaintenanceInspectionImpStringFacilityImpMaintenanceInspectionImp() {
+	public void testMaintenanceImp() {
 		assertEquals(main,insp,"1234", details);
 	}
 
@@ -59,15 +59,14 @@ public class MaintenanceImpTest {
 
 	@Test
 	public void testGetFacilityMaintenanceDetails() {
-		assertEquals(details, main.getFacilityMaintenanceDetails());
+		assertEquals(insp, main.getFacilityMaintenanceDetails());
 	}
 
 	@Test
 	public void testSetFacilityMaintenanceDetails() {
-		main.setFacilityMaintenanceDetails(details);
-		assertEquals(details, main.getFacilityMaintenanceDetails());
-		
-
+		main.setFacilityMaintenanceDetails(insp);
+		System.out.println(main.getFacilityMaintenanceDetails(insp));
+		assertEquals(insp, main.getFacilityMaintenanceDetails());
 	}
 
 	@Test
@@ -76,16 +75,8 @@ public class MaintenanceImpTest {
 		
 		
 	}
-	@Test
-	public void testGetFacilityID() {
-		assertEquals("1234", faci.getFacilityId());
-	}
 
-	@Test
-	public void testSetFacilityID() {
-		faci.setFacilityId("1234");
-		assertEquals("1234", faci.getFacilityId());
-	}
+
 
 	@Test
 	public void testGetFacility() {

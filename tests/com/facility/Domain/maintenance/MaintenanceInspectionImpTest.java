@@ -22,26 +22,22 @@ public class MaintenanceInspectionImpTest {
 	public void setUp() {
 		fac = new FacilityImp("winthrop", "20", details);
 		faci = new FacilityImp ("Shardien","1234",details2);
-		insp = new MaintenanceInspectionImp (d1," water inspection", "approved", "not urgent","water damage",d1);
+		insp = new MaintenanceInspectionImp (d1,"ANNUAL", "approved", "not urgent","water damage",d1);
 		
 	}
 
 	@Test
 	public void testMaintenanceInspectionImp() {
 		insp.setRequestDate(d1);
-		insp.setInspectionType("water inspection");
+		insp.setInspectionType("ANNUAL");
 		insp.setInspectionReport("approved");
 		insp.setUrgency("not urgent");
 		insp.setInspectionDate(d1);
 		
-		assertEquals(d1, insp);
+		assertEquals(d1, insp.getInspectionDate());
 	}
 
-	@Test
-	public void testMaintenanceInspectionImpDateStringStringStringStringDate() {
-		insp.setInspectionDate(d1);
-		assertEquals(d1,insp.getInspectionDate());
-	}
+
 
 	@Test
 	public void testGetInspectionDate() {
@@ -56,16 +52,18 @@ public class MaintenanceInspectionImpTest {
 		
 	}
 
-	@Test
-	public void testGetInspectionType() {
-		assertEquals("water inspection",insp.getInspectionType());
-	}
+	
 
 	@Test
 	public void testSetInspectionType() {
-		insp.setInspectionType("water inspection");
-		assertEquals("water damage",insp.getInspectionType());
+	
+//		System.out.println(insp.getInspectionType());
+		assertEquals("ANNUAL",insp.getInspectionType());
 		
+	}
+	@Test
+	public void testGetInspectionType() {
+		assertEquals("ANNUAL",insp.getInspectionType());
 	}
 
 	@Test
@@ -84,21 +82,17 @@ public class MaintenanceInspectionImpTest {
 	@Test
 	public void testSetRequestDate() {
 		insp.setRequestDate(d1);
-		//assertEquals(d1, insp.setRequestDate());
+		assertEquals(d1, insp.getRequestDate());
 		
 	}
 
 	@Test
 	public void testSetInspectionReport() {
 		insp.setInspectionReport("water damage");
-		//assertEquals("water damage",insp.)
+		assertEquals("water damage",insp.getInspectionReport());
 		
 	}
 
-	@Test
-	public void testToString() {
-		 MaintenanceInspectionImp  maintenanceInspectionImp = new MaintenanceInspectionImp();
-		 assertEquals(maintenanceInspectionImp.toString(), "");
-		}
+
 	}
 

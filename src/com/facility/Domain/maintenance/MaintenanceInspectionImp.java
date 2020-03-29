@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class MaintenanceInspectionImp {
 private Date inspectionDate;
+private Date requestDate;
 private String inspectionType;
 private String inspectionReport;
 private String urgency;
@@ -20,6 +21,7 @@ public MaintenanceInspectionImp(Date inspectionDate, String inspectionType, Stri
 	this.inspectionType = inspectionType;
 	this.inspectionReport = inspectionReport;
 	this.urgency = urgency;
+	this.requestDate = requestDate;
 }
 
 
@@ -50,8 +52,18 @@ public void setInspectionReport(String report) {
 	this.inspectionReport = report;
 	
 }
-public void setRequestDate(Date now) {
+
+public String getInspectionReport() {
+	return inspectionReport;
 	
+}
+
+public void setRequestDate(Date request) {
+	this.requestDate = request;
+}
+
+public Date getRequestDate() {
+	return requestDate;
 }
 
 @Override
