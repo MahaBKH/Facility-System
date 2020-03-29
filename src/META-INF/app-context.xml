@@ -20,7 +20,7 @@
 
 	</bean>
 	<bean id="Maintenance" name="maintenance"
-		class="com.facility.Domain.maintenance.MaintenanceInspectionImp">
+		class="com.facility.Domain.maintenance.MaintenanceImp">
 		<property name="facilityMaintenanceDetails" ref="inspection"></property>
 	</bean>
 	<bean id="facilityMaintenanceDetails" name="inspection"
