@@ -2,7 +2,10 @@ package com.facility.Domain.maintenance;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import static java.util.Arrays.asList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -97,6 +100,68 @@ public class MaintenanceImpTest {
 	public void testSetFacility() {
 		main.setFacility(faci);
 		assertEquals(faci, main.getFacility());
+	}
+	@Test
+	public void testreportProblemForFacility() {
+		main.reportProblemForFacility(faci, "water damage");
+		assertEquals(faci, main);
+	}
+	
+	@Test
+	public void testlistFacilityProblems () {
+		ArrayList<String> m = new ArrayList<String>();
+		m.addAll(Arrays.asList("problem 1", "problem2", "problem3", "problem4"));
+		assertEquals(m, main.listFacilityProblems(faci));
+		}
+	
+	@Test
+	public void testcalcProblemRateForFacility() {
+		assertEquals((Integer)66, main.calcProblemRateForFacility());
+		
+		
+	}
+	
+	@Test
+	public void testmakeFacilityMaintRequest() {
+		
+		
+		
+	}
+	
+	@Test
+	public void TestscheduleMaintenance() {
+		insp.setInspectionDate(d1);
+		insp.setInspectionReport("report");
+		insp.setInspectionType("water");
+		insp.setUrgency("Urg");
+		assertEquals(main.scheduleMaintenance(insp));
+		
+		
+		
+	}
+	
+	@Test
+	public void testlistMaintenance() {
+		assertEquals(10,main.listMaintenance());
+	}
+	
+	@Test
+	public void testlistMaintRequests() {
+		ArrayList<Object> m = new ArrayList<Object>(); 
+		m.addAll(Arrays.asList(1,2,3,4));
+		assertEquals(m, main.listMaintRequests(faci));
+		} 
+	@Test
+	public void testcalcMaintenanceCostForFacility() {
+		assertEquals((Integer)100, main.calcMaintenanceCostForFacility(faci));
+		}
+	
+	@Test
+	public void testcalcDownTimeForFacility() {
+		ArrayList<Object> m = new ArrayList<Object>(); 
+		m.addAll(Arrays.asList(00, 11));
+		assertEquals(m, main.calcDownTimeForFacility(faci));
+	
 	}
 
 
